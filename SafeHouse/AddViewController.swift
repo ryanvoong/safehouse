@@ -9,6 +9,9 @@
 import UIKit
 
 class AddViewController: UIViewController {
+    // MARK: Attributes
+    @IBOutlet weak var ServerIP: UITextField!
+    @IBOutlet weak var ServerPort: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
