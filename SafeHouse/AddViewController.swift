@@ -9,7 +9,6 @@
 import UIKit
 
 class AddViewController: UIViewController {
-    // MARK: Attributes
     @IBOutlet weak var ServerIP: UITextField!
     @IBOutlet weak var ServerPort: UITextField!
 
@@ -23,6 +22,8 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

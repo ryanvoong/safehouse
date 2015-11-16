@@ -14,6 +14,7 @@
 		34FDEE241BF846D40054D95E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FDEE221BF846D40054D95E /* LaunchScreen.storyboard */; };
 		34FDEE2F1BF846D40054D95E /* SafeHouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDEE2E1BF846D40054D95E /* SafeHouseTests.swift */; };
 		34FDEE3A1BF9AB960054D95E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDEE391BF9AB960054D95E /* ListViewController.swift */; };
+		34FDEE3C1BF9C4160054D95E /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FDEE3B1BF9C4160054D95E /* Sensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		34FDEE2E1BF846D40054D95E /* SafeHouseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeHouseTests.swift; sourceTree = "<group>"; };
 		34FDEE301BF846D40054D95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34FDEE391BF9AB960054D95E /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		34FDEE3B1BF9C4160054D95E /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				34FDEE1B1BF846D40054D95E /* AddViewController.swift */,
 				34FDEE1D1BF846D40054D95E /* Main.storyboard */,
 				34FDEE391BF9AB960054D95E /* ListViewController.swift */,
+				34FDEE3B1BF9C4160054D95E /* Sensor.swift */,
 				34FDEE201BF846D40054D95E /* Assets.xcassets */,
 				34FDEE221BF846D40054D95E /* LaunchScreen.storyboard */,
 				34FDEE251BF846D40054D95E /* Info.plist */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34FDEE1C1BF846D40054D95E /* AddViewController.swift in Sources */,
+				34FDEE3C1BF9C4160054D95E /* Sensor.swift in Sources */,
 				34FDEE1A1BF846D40054D95E /* AppDelegate.swift in Sources */,
 				34FDEE3A1BF9AB960054D95E /* ListViewController.swift in Sources */,
 			);

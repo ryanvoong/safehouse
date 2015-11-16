@@ -8,18 +8,6 @@
 
 import UIKit
 
-class Sensor {
-    var ID: String
-    var type: String
-    var status: Int
-    
-    init(ID: String, type: String, status: Int) {
-        self.ID = ID
-        self.type = type
-        self.status = status
-    }
-}
-
 class ListViewController: UITableViewController {
     // temporary hard-coded data
     var sensorData: [Sensor] = [
@@ -37,5 +25,9 @@ class ListViewController: UITableViewController {
         cell.textLabel?.text = "\(sensorData[indexPath.row].ID) (\(sensorData[indexPath.row].type))"
         cell.detailTextLabel?.text = String(sensorData[indexPath.row].status)
         return cell
+    }
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+        
     }
 }
