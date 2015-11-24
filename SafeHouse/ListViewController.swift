@@ -24,6 +24,15 @@ class ListViewController: UITableViewController {
     }
     
     @IBAction func refresh(sender: AnyObject) {
+        getData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "getData", userInfo: nil, repeats: true)
+    }
+    
+    func getData() {
         let urlPath = "http://172.20.10.3:9000/get-sensors-ryan"
         guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint"); return }
         let request = NSMutableURLRequest(URL:endpoint)
@@ -31,7 +40,7 @@ class ListViewController: UITableViewController {
             do {
                 guard let dat = data else { throw JSONError.NoData }
                 guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: [NSJSONReadingOptions.AllowFragments]) as? NSDictionary else { throw JSONError.ConversionFailed }
-
+                
                 if let sensors = json["sensors"] as? [AnyObject] {
                     // reset the data
                     self.sensorData = []
@@ -62,5 +71,4 @@ class ListViewController: UITableViewController {
         case NoData = "ERROR: no data"
         case ConversionFailed = "ERROR: conversion from JSON failed"
     }
-
 }
