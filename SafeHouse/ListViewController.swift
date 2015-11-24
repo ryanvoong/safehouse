@@ -17,9 +17,23 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
         let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCell", forIndexPath: indexPath)
-        cell.textLabel?.text = "\(sensorData[indexPath.row].ID) (\(sensorData[indexPath.row].type))"
-        cell.detailTextLabel?.text = String(sensorData[indexPath.row].status)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text = "\(sensorData[indexPath.row].desc)\n(\(sensorData[indexPath.row].type))"
+        cell.detailTextLabel?.textColor = UIColor.blackColor()
+        switch sensorData[indexPath.row].status {
+        case 0:
+            cell.backgroundColor = UIColor.greenColor()
+            cell.detailTextLabel?.text = "safe"
+        case 1:
+            cell.backgroundColor = UIColor.redColor()
+            cell.detailTextLabel?.text = "ALERT!!!"
+        default:
+            cell.backgroundColor = UIColor.clearColor()
+            cell.detailTextLabel?.text = "disconnected"
+        }
         return cell
     }
     
@@ -33,7 +47,7 @@ class ListViewController: UITableViewController {
     }
     
     func getData() {
-        let urlPath = "http://172.20.10.3:9000/get-sensors-ryan"
+        let urlPath = "http://107.170.236.50/get-sensors-ryan"
         guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint"); return }
         let request = NSMutableURLRequest(URL:endpoint)
         NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
@@ -47,8 +61,8 @@ class ListViewController: UITableViewController {
                     
                     // add each sensor
                     for s in sensors {
-                        if let description = s["description"] as? String, id = s["id"] as? String, status = s["status"] as? Int {
-                            self.sensorData.append(Sensor(ID: id, type: description, status: status))
+                        if let id = s["id"] as? String, type = s["type"] as? String, desc = s["description"] as? String, status = s["status"] as? Int {
+                            self.sensorData.append(Sensor(ID: id, type: type, desc: desc, status: status))
                         }
                     }
                     
